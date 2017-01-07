@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-07T04:18:47.817Z</updated>
+  <updated>2017-01-07T05:22:02.550Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2017/01/07/git/"/>
     <id>http://yoursite.com/2017/01/07/git/</id>
     <published>2017-01-07T03:53:10.125Z</published>
-    <updated>2017-01-07T04:18:47.817Z</updated>
+    <updated>2017-01-07T05:22:02.550Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>git:提交前的强制检查各个项目用户邮箱设置</strong></p>
+    <content type="html"><![CDATA[<p>Git config全局配置<br><strong>git:提交前的强制检查各个项目用户邮箱设置</strong></p>
 <blockquote>
 <p><strong>git</strong>   <strong>强制</strong>   <strong>邮箱</strong></p>
 </blockquote>
@@ -47,10 +47,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;git:提交前的强制检查各个项目用户邮箱设置&lt;/strong&gt;&lt;/p&gt;
+      &lt;p&gt;Git config全局配置&lt;br&gt;&lt;strong&gt;git:提交前的强制检查各个项目用户邮箱设置&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;git&lt;/strong&gt;   &lt;strong&gt;强制&lt;/strong&gt;   &lt;strong&gt;邮箱&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockq
+&lt;p&gt;&lt;strong&gt;git&lt;/strong&gt;   &lt;strong&gt;强制&lt;/strong&gt;   &lt;strong&gt;邮箱&lt;/st
     
     </summary>
     
