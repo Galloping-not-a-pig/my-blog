@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-07T03:53:28.743Z</updated>
+  <updated>2017-01-07T04:18:47.817Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Git config全局配置</title>
     <link href="http://yoursite.com/2017/01/07/git/"/>
     <id>http://yoursite.com/2017/01/07/git/</id>
     <published>2017-01-07T03:53:10.125Z</published>
-    <updated>2017-01-07T03:53:28.743Z</updated>
+    <updated>2017-01-07T04:18:47.817Z</updated>
     
     <content type="html"><![CDATA[<p><strong>git:提交前的强制检查各个项目用户邮箱设置</strong></p>
 <blockquote>
