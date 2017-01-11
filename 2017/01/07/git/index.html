@@ -15,7 +15,7 @@ git   强制   邮箱">
 <meta property="og:description" content="Git config全局配置git:提交前的强制检查各个项目用户邮箱设置
 
 git   强制   邮箱">
-<meta property="og:updated_time" content="2017-01-09T05:21:37.569Z">
+<meta property="og:updated_time" content="2017-01-11T09:19:04.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git config全局配置">
 <meta name="twitter:description" content="Git config全局配置git:提交前的强制检查各个项目用户邮箱设置
@@ -270,9 +270,11 @@ git   强制   邮箱">
           
         <p>Git config全局配置<br><strong>git:提交前的强制检查各个项目用户邮箱设置</strong></p>
 <blockquote>
-<p><strong>git</strong>   <strong>强制</strong>   <strong>邮箱</strong><br><a id="more"></a><br><strong>保证提交日志的准确性</strong><br>在提交时，user.name, user.email会进入日志。这些信息，是追踪代码变更的关键。<br>为了保证这些信息的准确性，在push时，强制检查，如果user.name和user.email信息不正确，则拒绝push。<br><strong>全局配置</strong><br>如果我们工作中只涉及一个git服务器，用一个全局配置就可以搞定了：</p>
-<h3 id="全局配置代码"><a href="#全局配置代码" class="headerlink" title="全局配置代码"></a>全局配置代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --<span class="keyword">global</span> user.name <span class="string">"qweee.com"</span>git config --<span class="keyword">global</span> user.email <span class="string">"my email @qq.com"</span></div></pre></td></tr></table></figure>
+<p><strong>git</strong>   <strong>强制</strong>   <strong>邮箱</strong><br><a id="more"></a></p>
 </blockquote>
+<p><strong>保证提交日志的准确性</strong><br>在提交时，user.name, user.email会进入日志。这些信息，是追踪代码变更的关键。<br>为了保证这些信息的准确性，在push时，强制检查，如果user.name和user.email信息不正确，则拒绝push。</p>
+<p><strong>全局配置</strong><br>如果我们工作中只涉及一个git服务器，用一个全局配置就可以搞定了：</p>
+<h3 id="全局配置代码"><a href="#全局配置代码" class="headerlink" title="全局配置代码"></a>全局配置代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --<span class="keyword">global</span> user.name <span class="string">"qweee.com"</span>git config --<span class="keyword">global</span> user.email <span class="string">"my email @qq.com"</span></div></pre></td></tr></table></figure>
 <p><strong>工作在多个git项目</strong><br>但是我们可能同时工作在多个项目中，公司内部用自有的git管理项目，我们在github上还有自己的项目。<br>对于使用不同的用户身份，需要设置不用的sshkey，具体的配置可以看这里：[多个sshkey配置][1]<br>这个时候，对于user.name和user.email我们不能采用全局的配置。而是要对各个项目单独配置。<br><strong>项目配置</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config user.name <span class="string">"QQ号@.com"</span></div><div class="line">git config user.email <span class="string">"QQ号@.com"</span></div></pre></td></tr></table></figure></p>
 <p><strong>忘了做配置</strong><br>对于项目配置，有时我们会忘记在git init或者git clone之后，配置user.name以及user.email。<br>如果有全局配置，则使用全局配置。如果没全局配置，报错。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[qcf@ssrc test]$ git ci -a -m <span class="string">'commit for testing no user.name empty'</span> *** Please tell me who you are. Run git config --<span class="keyword">global</span> user.email <span class="string">"you@example.com"</span>git config --<span class="keyword">global</span> user.name <span class="string">"Your Name"</span> to set your account<span class="string">'s default identity. Omit --global to set the identity only in this repository. fatal: empty ident name (for &lt;qq.com&gt;) not allowed</span></div></pre></td></tr></table></figure></p>
 <p>报错能够及时纠正我们的错误，最糟糕的情况是：</p>
@@ -299,7 +301,7 @@ git   强制   邮箱">
         <p><span>本文标题:</span><a href="/2017/01/07/git/">Git config全局配置</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 QianChaoFei 的个人博客">QianChaoFei</a></p>
         <p><span>发布时间:</span>2017年01月07日 - 11时53分</p>
-        <p><span>最后更新:</span>2017年01月09日 - 13时21分</p>
+        <p><span>最后更新:</span>2017年01月11日 - 17时19分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/01/07/git/" title="Git config全局配置">http://yoursite.com/2017/01/07/git/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/01/07/git/　　作者: QianChaoFei" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
