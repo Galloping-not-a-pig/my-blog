@@ -73,32 +73,13 @@
   
   <entry>
     <title></title>
-    <link href="http://yoursite.com/2017/01/09/test/"/>
-    <id>http://yoursite.com/2017/01/09/test/</id>
-    <published>2017-01-09T09:06:05.037Z</published>
-    <updated>2017-01-17T09:48:19.872Z</updated>
-    
-    <content type="html"><![CDATA[<p> <img src="img/ssd.jpg" alt="@这是一个海豚 centre"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt; &lt;img src=&quot;img/ssd.jpg&quot; alt=&quot;@这是一个海豚 centre&quot;&gt;&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Git config全局配置</title>
     <link href="http://yoursite.com/2017/01/07/git/"/>
     <id>http://yoursite.com/2017/01/07/git/</id>
     <published>2017-01-07T03:53:10.125Z</published>
-    <updated>2017-01-11T09:19:04.389Z</updated>
+    <updated>2017-01-17T10:02:31.604Z</updated>
     
-    <content type="html"><![CDATA[<p>Git config全局配置<br><strong>git:提交前的强制检查各个项目用户邮箱设置</strong></p>
+    <content type="html"><![CDATA[<hr>
+<h2 id="Git-config全局配置"><a href="#Git-config全局配置" class="headerlink" title=" Git config全局配置"></a> Git config全局配置</h2><p>Git config全局配置<br><strong>git:提交前的强制检查各个项目用户邮箱设置</strong></p>
 <blockquote>
 <p><strong>git</strong>   <strong>强制</strong>   <strong>邮箱</strong><br><a id="more"></a></p>
 </blockquote>
@@ -124,7 +105,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Git config全局配置&lt;br&gt;&lt;strong&gt;git:提交前的强制检查各个项目用户邮箱设置&lt;/strong&gt;&lt;/p&gt;
+      &lt;hr&gt;
+&lt;h2 id=&quot;Git-config全局配置&quot;&gt;&lt;a href=&quot;#Git-config全局配置&quot; class=&quot;headerlink&quot; title=&quot; Git config全局配置&quot;&gt;&lt;/a&gt; Git config全局配置&lt;/h2&gt;&lt;p&gt;Git config全局配置&lt;br&gt;&lt;strong&gt;git:提交前的强制检查各个项目用户邮箱设置&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;git&lt;/strong&gt;   &lt;strong&gt;强制&lt;/strong&gt;   &lt;strong&gt;邮箱&lt;/strong&gt;&lt;br&gt;
     
