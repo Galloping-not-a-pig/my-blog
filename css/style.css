@@ -140,7 +140,7 @@ body {
   font-family: "微软雅黑", 'Microsoft JhengHei', Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
   font-size: 16px;
   background: #f7f7ff;
-  color: #434a54;
+  color: #999;
   -webkit-overflow-scrolling: touch;
 }
 ::selection {
