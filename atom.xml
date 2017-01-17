@@ -76,12 +76,12 @@
     <link href="http://yoursite.com/2017/01/07/git/"/>
     <id>http://yoursite.com/2017/01/07/git/</id>
     <published>2017-01-07T03:53:10.125Z</published>
-    <updated>2017-01-17T10:02:31.604Z</updated>
+    <updated>2017-01-17T10:57:14.917Z</updated>
     
     <content type="html"><![CDATA[<hr>
 <h2 id="Git-config全局配置"><a href="#Git-config全局配置" class="headerlink" title=" Git config全局配置"></a> Git config全局配置</h2><p>Git config全局配置<br><strong>git:提交前的强制检查各个项目用户邮箱设置</strong></p>
 <blockquote>
-<p><strong>git</strong>   <strong>强制</strong>   <strong>邮箱</strong><br><a id="more"></a></p>
+<p> git   强制  邮箱<br><a id="more"></a></p>
 </blockquote>
 <p><strong>保证提交日志的准确性</strong><br>在提交时，user.name, user.email会进入日志。这些信息，是追踪代码变更的关键。<br>为了保证这些信息的准确性，在push时，强制检查，如果user.name和user.email信息不正确，则拒绝push。</p>
 <p><strong>全局配置</strong><br>如果我们工作中只涉及一个git服务器，用一个全局配置就可以搞定了：</p>
@@ -108,7 +108,7 @@
       &lt;hr&gt;
 &lt;h2 id=&quot;Git-config全局配置&quot;&gt;&lt;a href=&quot;#Git-config全局配置&quot; class=&quot;headerlink&quot; title=&quot; Git config全局配置&quot;&gt;&lt;/a&gt; Git config全局配置&lt;/h2&gt;&lt;p&gt;Git config全局配置&lt;br&gt;&lt;strong&gt;git:提交前的强制检查各个项目用户邮箱设置&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;git&lt;/strong&gt;   &lt;strong&gt;强制&lt;/strong&gt;   &lt;strong&gt;邮箱&lt;/strong&gt;&lt;br&gt;
+&lt;p&gt; git   强制  邮箱&lt;br&gt;
     
     </summary>
     
