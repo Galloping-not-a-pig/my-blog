@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-17T09:40:06.753Z</updated>
+  <updated>2017-01-17T09:47:53.039Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://yoursite.com/2017/01/17/call/"/>
     <id>http://yoursite.com/2017/01/17/call/</id>
     <published>2017-01-17T09:39:45.355Z</published>
-    <updated>2017-01-17T09:40:06.753Z</updated>
+    <updated>2017-01-17T09:47:53.039Z</updated>
     
     <content type="html"><![CDATA[<hr>
 <h2 id="JS中的call，-apply，bind方法"><a href="#JS中的call，-apply，bind方法" class="headerlink" title="JS中的call， apply，bind方法"></a>JS中的call， apply，bind方法</h2><p>在JavaScript中，call、apply和bind 是Function对象自带的三个方法，这三个方法的主要作用是改变函数中的this指向</p>
-<h5 id="call、apply、bind方法的共同点和区别："><a href="#call、apply、bind方法的共同点和区别：" class="headerlink" title="call、apply、bind方法的共同点和区别："></a>call、apply、bind方法的共同点和区别：</h5><p>apply 、 call 、bind 三者都是用来改变函数的this对象的指向的；<br>apply 、 call 、bind 三者第一个参数都是this要指向的对象，也就是想指定的上下文（函数的每次调用都会拥有一个特殊值——本次调用的上下文（context）——这就是this关键字的值。）；<br>apply 、 call 、bind 三者都可以利用后续参数传参；<br>bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。</p>
+<h5 id="call、apply、bind方法的共同点和区别："><a href="#call、apply、bind方法的共同点和区别：" class="headerlink" title="call、apply、bind方法的共同点和区别："></a>call、apply、bind方法的共同点和区别：</h5><p>apply 、 call 、bind 三者都是用来改变函数的this对象的指向的；<br>apply 、 call 、bind 三者第一个参数都是this要指向的对象，也就是想指定的上下文（函数的每次调用都会拥有一个特殊值——本次调用的上下文（context）——这就是this关键字的值。）；<br>apply 、 call 、bind 三者都可以利用后续参数传参；<br>bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。<br>&lt;–more–&gt;</p>
 <p>##一，call</p>
 <h3 id="call"><a href="#call" class="headerlink" title="call(  )"></a>call(  )</h3><p>语法：call([thisObj[,arg1[, arg2[, [,.argN]]]]]) 定义：调用一个对象的一个方法，以另一个对象替换当前对象。</p>
 <p>说明： call 方法可以用来代替另一个对象调用一个方法。<br>call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。</p>
@@ -52,6 +52,12 @@
 <p>二、call和apply区别</p>
 <p>传递参数的方式。用法上不同，主要是参数不完全同<br>三   实例说明</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">function Person(name,age) &#123;  </div><div class="line">this.name=name;  </div><div class="line">this.age=age;  </div><div class="line">this.money = 500;</div><div class="line">&#125; </div><div class="line"></div><div class="line">function myFun(money) &#123;        </div><div class="line">    alert(this.money);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var money = 100;</div><div class="line">myFun(money); </div><div class="line">//return 100;  //window.myFun(money); save to myFun(money);</div><div class="line">//这个时候this指向的是window对象，其实myFun函数和定义的var money = 100;都作为window对象子对象（即全局对象）</div><div class="line"></div><div class="line">myFun.apply(window,[]);  //save to window.myFun.apply(window,[]);  </div><div class="line">//return 100;  //同上</div><div class="line"></div><div class="line">myFun.apply(new Person(&apos;zhangsan&apos;,23),[]);  </div><div class="line">//return 500, 空数组作为参数，仅符合语法要求</div><div class="line">//这个时候myFun方法里面的this指向的是new Person(&apos;zhangsan&apos;,23)对象，二不是myFun类(函数)，故弹出500</div><div class="line"></div><div class="line">myFun.call(new Person(&apos;zhangsan&apos;,23),money,300,&apos;mycardId&apos;);  </div><div class="line">//return 500, 后面money,300和mycardId是参数列表作为参数，一一列出</div><div class="line">//这个时候myFun方法里面的this指向的是new Person(&apos;zhangsan&apos;,23)对象，二不是myFun类(函数)，故弹出500</div></pre></td></tr></table></figure>
+<h2 id="三、bind"><a href="#三、bind" class="headerlink" title="三、bind"></a>三、bind</h2><p>bind是在EcmaScript5中扩展的方法（IE6,7,8不支持）<br>bind() 方法与 apply 和 call 很相似，也是可以改变函数体内 this 的指向。</p>
+<p>　　MDN的解释是：bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作为 this，传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数</p>
+<blockquote>
+<p>  注意：bind方法的返回值是函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var bar=function()&#123;   </div><div class="line">  console.log(this.x);   </div><div class="line">&#125;</div><div class="line">var foo = &#123; </div><div class="line">     x:3   </div><div class="line">&#125;   </div><div class="line">bar();  </div><div class="line">bar.bind(foo)();</div><div class="line"> /*或*/</div><div class="line">var func = bar.bind(foo);   </div><div class="line">func();</div><div class="line">输出：</div><div class="line">undefined</div><div class="line">3</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -69,7 +75,7 @@
     <link href="http://yoursite.com/2017/01/09/test/"/>
     <id>http://yoursite.com/2017/01/09/test/</id>
     <published>2017-01-09T09:06:05.037Z</published>
-    <updated>2017-01-09T09:11:34.729Z</updated>
+    <updated>2017-01-17T09:48:19.872Z</updated>
     
     <content type="html"><![CDATA[<p> <img src="img/ssd.jpg" alt="@这是一个海豚 centre"></p>
 ]]></content>
@@ -120,33 +126,6 @@
       &lt;p&gt;Git config全局配置&lt;br&gt;&lt;strong&gt;git:提交前的强制检查各个项目用户邮箱设置&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;git&lt;/strong&gt;   &lt;strong&gt;强制&lt;/strong&gt;   &lt;strong&gt;邮箱&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/01/06/hello-world/"/>
-    <id>http://yoursite.com/2017/01/06/hello-world/</id>
-    <published>2017-01-06T15:05:54.510Z</published>
-    <updated>2017-01-09T05:23:18.666Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
     
     </summary>
     
