@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-23T02:18:09.097Z</updated>
+  <updated>2017-02-23T07:12:33.392Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,152 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/02/23/bianLiang/"/>
+    <id>http://yoursite.com/2017/02/23/bianLiang/</id>
+    <published>2017-02-23T06:48:22.853Z</published>
+    <updated>2017-02-23T07:12:33.392Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<h2 id="变量声明，作用域，作用域链"><a href="#变量声明，作用域，作用域链" class="headerlink" title=" 变量声明，作用域，作用域链"></a> 变量声明，作用域，作用域链</h2><h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><blockquote>
+<p>变量的作用域无非就是两种：全局变量和局部变量。<br>   Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。<br>   在函数外部自然无法读取函数内的局部变量。<br>   ES5函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量！ ES6中可以使用 let 来声明一个块级变量</p>
+</blockquote>
+<p> javascript的变量声明具<br>有hoisting机制，JavaScript引擎在执行的时候，会把所有变量的声明都提升到当前作用域的最前面。</p>
+<p>先看一段代码</p>
+<pre><code>var v = &quot;hello&quot;;
+(function(){
+  console.log(v);
+  var v = &quot;world&quot;;
+})();
+</code></pre><p>这段代码运行的结果是什么呢？<br>答案是：undefined<br>这段代码说明了两个问题，<br>第一，function作用域里的变量v遮盖了上层作用域变量v。代码做少些变动</p>
+<pre><code>var v = &quot;hello&quot;;
+if(true){
+  console.log(v);
+  var v = &quot;world&quot;;
+}
+输出结果为”hello”,说明javascript是没有块级作用域的。函数是JavaScript中唯一拥有自身作用域的结构。
+</code></pre><p>第二，在function作用域内，变量v的声明被提升了。所以最初的代码相当于</p>
+<pre><code>var v = &quot;hello&quot;;
+(function(){
+  var v; //declaration hoisting
+  console.log(v);
+  v = &quot;world&quot;;
+})();
+</code></pre><h3 id="声明、定义与初始化"><a href="#声明、定义与初始化" class="headerlink" title="声明、定义与初始化"></a>声明、定义与初始化</h3><p>声明宣称一个名字的存在，定义则为这个名字分配存储空间，而初始化则是为名字分配的存储空间赋初值。<br>用C++来表述这三个概念</p>
+<pre><code>extern int i;//这是声明，表明名字i在某处已经存在了
+int i;//这是声明并定义名字i,为i分配存储空间
+i = 0;//这是初始化名字i,为其赋初值为0
+</code></pre><p>javascript中则是这样</p>
+<pre><code>var v;//声明变量v
+v = &quot;hello&quot;;//(定义并)初始化变量v
+</code></pre><p>因为javascript为动态语言，其变量并没有固定的类型，其存储空间大小会随初始化与赋值而变化，所以其变量的“定义”就不像传统的静态语言一样了，其定义显得无关紧要。</p>
+<h3 id="声明提升"><a href="#声明提升" class="headerlink" title="声明提升"></a>声明提升</h3><p>当前作用域内的声明都会提升到作用域的最前面，包括变量和函数的声明</p>
+<pre><code>(function(){
+  var a = &quot;1&quot;;
+  var f = function(){};
+  var b = &quot;2&quot;;
+  var c = &quot;3&quot;;
+})();
+</code></pre><p>变量a,f,b,c的声明会被提升到函数作用域的最前面，类似如下：</p>
+<pre><code>(function(){
+  var a,f,b,c;
+  a = &quot;1&quot;;
+  f = function(){};
+  b = &quot;2&quot;;
+  c = &quot;3&quot;;
+})();
+</code></pre><p>请注意函数表达式并没有被提升，这也是函数表达式与函数声明的区别。进一步看二者的区别：</p>
+<pre><code>(function(){
+  //var f1,function f2(){}; //hoisting,被隐式提升的声明
+
+  f1(); //ReferenceError: f1 is not defined
+  f2();
+
+  var f1 = function(){};
+  function f2(){}
+})();
+</code></pre><p>上面代码中函数声明f2被提升，所以在前面调用f2是没问题的。虽然变量f1也被提升，但f1提升后的值为undefined,其真正的初始值是在执行到函数表达式处被赋予的。所以只有声明是被提升的。</p>
+<h3 id="名字解析顺序"><a href="#名字解析顺序" class="headerlink" title="名字解析顺序"></a>名字解析顺序</h3><p>avascript中一个名字(name)以四种方式进入作用域(scope)，其优先级顺序如下：<br>1、语言内置：所有的作用域中都有 this 和 arguments 关键字<br>2、形式参数：函数的参数在函数作用域中都是有效的<br>3、函数声明：形如function foo() {}<br>4、变量声明：形如var bar;</p>
+<p>名字声明的优先级如上所示，也就是说如果一个变量的名字与函数的名字相同，那么函数的名字会覆盖变量的名字，无论其在代码中的顺序如何。但名字的初始化却是按其在代码中书写的顺序进行的，不受以上优先级的影响。看代码：</p>
+<pre><code>(function(){
+var foo;
+console.log(typeof foo); //function
+
+function foo(){}
+
+foo = &quot;foo&quot;;
+console.log(typeof foo); //string
+})();
+</code></pre><p>如果形式参数中有多个同名变量，那么最后一个同名参数会覆盖其他同名参数，即使最后一个同名参数并没有定义。</p>
+<p>以上的名字解析优先级存在例外，比如可以覆盖语言内置的名字arguments。</p>
+<h3 id="命名函数表达式"><a href="#命名函数表达式" class="headerlink" title="命名函数表达式"></a>命名函数表达式</h3><p>可以像函数声明一样为函数表达式指定一个名字，但这并不会使函数表达式成为函数声明。命名函数表达式的名字不会进入名字空间，也不会被提升</p>
+<pre><code>f();//TypeError: f is not a function
+foo();//ReferenceError: foo is not defined
+var f = function foo(){console.log(typeof foo);};
+f();//function
+foo();//ReferenceError: foo is not defined
+</code></pre><p>命名函数表达式的名字只在该函数的作用域内部有效</p>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>　在JavaScript中，函数也是对象，实际上，JavaScript里一切都是对象。函数对象和其它对象一样，拥有可以通过代码访问的属性和一系列仅供JavaScript引擎访问的内部属性。其中一个内部属性是[[Scope]]，由ECMA-262标准第三版定义，该内部属性包含了函数被创建的作用域中对象的集合，这个集合被称为函数的作用域链，它决定了哪些数据能被函数访问。</p>
+<p>　　当一个函数创建后，它的作用域链会被创建此函数的作用域中可访问的数据对象填充。例如定义下面这样一个函数：</p>
+<pre><code>function add(num1,num2) {
+var sum = num1 + num2;
+return sum;
+}
+</code></pre><p>在函数add创建时，它的作用域链中会填入一个全局对象，该全局对象包含了所有全局变量，如下图所示（注意：图片只例举了全部变量中的一部分）：<br><img src="./img/2011090414435366.jpg" alt="Alt text"></p>
+<p>函数add的作用域将会在执行时用到。例如执行如下代码：</p>
+<blockquote>
+<p>var total = add(5,10);</p>
+</blockquote>
+<p>　执行此函数时会创建一个称为“运行期上下文(execution context)”的内部对象，运行期上下文定义了函数执行时的环境。每个运行期上下文都有自己的作用域链，用于标识符解析，当运行期上下文被创建时，而它的作用域链初始化为当前运行函数的[[Scope]]所包含的对象。</p>
+<p>　　这些值按照它们出现在函数中的顺序被复制到运行期上下文的作用域链中。它们共同组成了一个新的对象，叫“活动对象(activation object)”，该对象包含了函数的所有局部变量、命名参数、参数集合以及this，然后此对象会被推入作用域链的前端，当运行期上下文被销毁，活动对象也随之销毁。新的作用域链如下图所示：</p>
+<p><img src="./img/2011090414444843.jpg" alt="Alt text"></p>
+<p>在函数执行过程中，没遇到一个变量，都会经历一次标识符解析过程以决定从哪里获取和存储数据。该过程从作用域链头部，也就是从活动对象开始搜索，查找同名的标识符，如果找到了就使用这个标识符对应的变量，如果没找到继续搜索作用域链中的下一个对象，如果搜索完所有对象都未找到，则认为该标识符未定义。函数执行过程中，每个标识符都要经历这样的搜索过程。</p>
+<h3 id="改变作用域链"><a href="#改变作用域链" class="headerlink" title="改变作用域链"></a>改变作用域链</h3><p>函数每次执行时对应的运行期上下文都是独一无二的，所以多次调用同一个函数就会导致创建多个运行期上下文，当函数执行完毕，执行上下文会被销毁。每一个运行期上下文都和一个作用域链关联。一般情况下，在运行期上下文运行的过程中，其作用域链只会被 with 语句和 catch 语句影响。</p>
+<p>　　with语句是对象的快捷应用方式，用来避免书写重复代码。例如：</p>
+<pre><code>function initUI(){
+with(document){
+    var bd = body,
+        links =  getElementsByTagName(&quot;a&quot;),
+        i = 0,
+        len = links.length;
+    while(i &lt; len){
+        update(links[i++]);
+    }
+    getElementById(&quot;btnInit&quot;).onclick = function(){
+        doSomething();
+    };
+}
+}
+</code></pre><p>这里使用width语句来避免多次书写document，看上去更高效，实际上产生了性能问题。</p>
+<p>　　当代码运行到with语句时，运行期上下文的作用域链临时被改变了。一个新的可变对象被创建，它包含了参数指定的对象的所有属性。这个对象将被推入作用域链的头部，这意味着函数的所有局部变量现在处于第二个作用域链对象中，因此访问代价更高了。如下图所示：<br><img src="./img/2011090414454524.jpg" alt="Alt text"></p>
+<p>因此在程序中应避免使用with语句，在这个例子中，只要简单的把document存储在一个局部变量中就可以提升性能。</p>
+<p>　　另外一个会改变作用域链的是try-catch语句中的catch语句。当try代码块中发生错误时，执行过程会跳转到catch语句，然后把异常对象推入一个可变对象并置于作用域的头部。在catch代码块内部，函数的所有局部变量将会被放在第二个作用域链对象中。示例代码：
+　　</p>
+<pre><code>try{
+doSomething();
+   }catch(ex){
+alert(ex.message); //作用域链在此处改变
+}
+</code></pre><p>　请注意，一旦catch语句执行完毕，作用域链机会返回到之前的状态。try-catch语句在代码调试和异常处理中非常有用，因此不建议完全避免。你可以通过优化代码来减少catch语句对性能的影响。一个很好的模式是将错误委托给一个函数处理，例如：</p>
+<pre><code>try{
+doSomething();
+}catch(ex){
+handleError(ex); //委托给处理器方法
+}
+</code></pre><p>优化后的代码，handleError方法是catch子句中唯一执行的代码。该函数接收异常对象作为参数，这样你可以更加灵活和统一的处理错误。由于只执行一条语句，且没有局部变量的访问，作用域链的临时改变就不会影响代码性能了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h2 id=&quot;变量声明，作用域，作用域链&quot;&gt;&lt;a href=&quot;#变量声明，作用域，作用域链&quot; class=&quot;headerlink&quot; title=&quot; 变量声明，作用域，作用域链&quot;&gt;&lt;/a&gt; 变量声明，作用域，作用域链&lt;/h2&gt;&lt;h2 id=&quot;变量作用域&quot;&gt;&lt;a href
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
